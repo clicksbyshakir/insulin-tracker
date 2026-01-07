@@ -178,12 +178,12 @@
 </head>
 <body>
     <div class="container">
-        <h1>\uD83E\uDE7A Insulin & Blood Sugar Log Tracker</h1>
+        <h1>📋 Insulin & Blood Sugar Log Tracker</h1>
+            Insulin & Blood Sugar Log Tracker</h1>
         
         <div class="form-section">
             <div class="form-grid">
-                <div class="form-group">
-                    <label for="logDate">Date:</label>
+<h1>📋 Insulin & Blood Sugar Log Tracker</h1>                    <label for="logDate">Date:</label>
                     <input type="date" id="logDate" required>
                 </div>
                 <div class="form-group">
@@ -225,19 +225,20 @@
             </div>
 
             <div class="calculation">
-                <h3>Automatic Humalog Calculations</h3>
-                <p>Formula: (Blood Sugar - 100) / 50 = Units</p>
-                <p>Humalog doses are automatically calculated based on blood sugar readings.</p>
-            </div>
+                                <h3>📋 Dosing Guidelines</h3>
+                <p><strong>📋 LANTUS (Basal - Before Breakfast)</strong><br>
+                If all last 3 days B/S > 140 mg/dL → Add 4 units | If any B/S < 70 mg/dL → Subtract 6 units</p>
+                <p><strong>📋 HUMALOG (Bolus - Sliding Scale)</strong><br>
+                130–160 mg/dL → Same dose | < 130 mg/dL → Minus 1 unit | > 160 mg/dL → Plus 1 unit</p>v>
 
             <div class="button-group">
-                <button class="btn-save" onclick="saveLog()">\u2705 Save Log</button>
-                <button class="btn-clear" onclick="clearForm()">\uD83D\uDD04 Clear Form</button>
+                <button c>✅ Save Log<
+                <button class="btn-clear" onclick="clearForm(>🔄 Clear Form<
             </div>
         </div>
 
         <div class="logs-section">
-            <h2>\uD83D\uDCC8 Previous Logs</h2>
+            <h2>>📈 Previous Logs<
             <table id="logsTable">
                 <thead>
                     <tr>
@@ -263,11 +264,13 @@
         // Supabase configuration
         const SUPABASE_URL = 'https://lkmuujdzsuhvetpejomy.supabase.co';
         const SUPABASE_ANON_KEY = 'sb_publishable_knmZ-Qw-KzoqcgFjndiL2A_W6CrdpuD';
-        const supabase = supabase.createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
+        const { createClient } = window.supabase;
+        const supabase = createClient(SUPABASE_URL, SUPABASE_ANON_KEY);
 
         // Set today's date by default
         document.getElementById('logDate').valueAsDate = new Date();
 
+        
         // Auto-calculate Humalog doses
         function calculateHumalog(bsValue) {
             if (!bsValue || bsValue <= 100) return 0;
